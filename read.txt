@@ -1,0 +1,16 @@
+####
+Kokte çalışmıyoruz .htaccess ayarları ona göre yapıldı
+####
+
+starting composer
+
+composer init
+
+
+composer.json'da autoload ayarlanınca sürekli require_once kullanmamıza gerek kalmaz. Onun yerine namespcae kullanırız.
+
+bu namespacelerden sonra ** composer update ** yeter
+
+Tüm istekli index.php'den yönlendirdik
+
+Daha yönlendirmeyi beceremiyor ben çözdüm ama

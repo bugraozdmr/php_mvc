@@ -1,0 +1,14 @@
+{
+    "name": "bugra/php_mvc",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bugra"
+        }
+    ],
+    "require": {}
+}

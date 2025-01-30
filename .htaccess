@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# Eğer istek public klasöründe değilse, public klasörüne yönlendir
+RewriteCond %{REQUEST_URI} !^/public/
+
+# aptal gpt
+RewriteRule ^(.*)$ /php_mvc/public/$1 [L]
+
