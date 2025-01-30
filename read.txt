@@ -14,3 +14,11 @@ bu namespacelerden sonra ** composer update ** yeter
 Tüm istekli index.php'den yönlendirdik
 
 Daha yönlendirmeyi beceremiyor ben çözdüm ama
+
+
+AKLINDA BULUNSUN
+<label for="name-field">Name</label>
+<input type="text" class="form-control <?php echo $model->hasError('name') ? ' is-invalid' : '' ?>" id="name-field" value="<?php echo $model->name ?>" aria-describedby="name-f" placeholder="Enter name" name="name">
+<div class="invalid-feedback">
+    <?php echo $model->getFirstError('name') ?>
+</div>
