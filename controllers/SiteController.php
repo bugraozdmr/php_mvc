@@ -2,29 +2,34 @@
 
 namespace app\controllers;
 
-use app\core\Application;
+use app\core\Controller;
+use app\core\Request;
 
 /**
  * Main Controller
  */
-class SiteController
+class SiteController extends Controller
 {
-    public static function home()
+    public function home()
     {
         $params = [
             'name' => 'Grant',
             'age' => 3000
         ];
-        return Application::$app->router->renderView('home',$params);
+        return $this->render('home',$params);
     }
 
     // static method (? no need (?))
     public function contact()
     {
-        return Application::$app->router->renderView('contact');
+        return $this->render('contact');
     }
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        $body = $request->getBody();
+        echo "<pre>";
+        var_dump($body);
+        echo "</pre>";
         return 'handling submitted data';
     }
 }

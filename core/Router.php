@@ -28,7 +28,7 @@ class Router
     public function resolve()
     {
         $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         $callback = $this->routes[$method][$path] ?? false;
 
         if($callback === false) {
@@ -41,15 +41,12 @@ class Router
             return $this->renderView($callback);
         }
 
-        // Burada callback bir array (controller ve method) olarak bekleniyor
         if (is_array($callback)) {
-            // Eğer callback bir arrayse, örneğin [SiteController::class, 'contact'] gibi,
-            // sınıfın bir örneğini oluşturuyoruz ve metodu çağırıyoruz.
-            $controller = new $callback[0]();
-            return call_user_func([$controller, $callback[1]]);
+            Application::$app->controller = new $callback[0]();
+            $callback[0] = Application::$app->controller;
         }
 
-        echo call_user_func($callback);
+        return call_user_func($callback, $this->request);
     }
 
     public function renderView($view,$params = []) 
@@ -67,8 +64,10 @@ class Router
 
     protected function layoutContent()
     {
+        $layout = Application::$app->controller->layout;
+
         ob_start();
-        include_once Application::$ROOT_DIR."/views/layout/main.php";
+        include_once Application::$ROOT_DIR."/views/layout/$layout.php";
         return ob_get_clean();
     }
 
