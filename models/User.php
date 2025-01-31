@@ -2,9 +2,10 @@
 
 namespace app\models;
 
+use app\core\DbModel;
 use app\core\Model;
 
-class RegisterModel extends Model
+class RegisterModel extends DbModel
 {
     // initilize the variables to empty strings (to avoid undefined variable error)
     public string $name = '';
