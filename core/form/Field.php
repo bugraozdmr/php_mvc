@@ -13,14 +13,12 @@ class Field
     public string $type;
     public Model $model;
     public string $attribute;
-    public string $label;
 
-    public function __construct(Model $model, string $attribute, string $label)
+    public function __construct(Model $model, string $attribute)
     {
         $this->type = self::TYPE_TEXT;
         $this->model = $model;
         $this->attribute = $attribute;
-        $this->label = $label;
     }
 
     public function __toString()
@@ -34,7 +32,7 @@ class Field
                 </div>
             </div>
         ',
-            $this->label,
+            $this->model->getLabel($this->attribute),
             $this->type,
             $this->attribute,
             $this->model->{$this->attribute},   // $model->name gibi düşün
