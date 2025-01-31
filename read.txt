@@ -1,5 +1,8 @@
 ####
 Kokte çalışmıyoruz .htaccess ayarları ona göre yapıldı
+
+
+https://www.youtube.com/watch?v=Fnc-KUXjNFU&list=PLLQuc_7jk__Uk_QnJMPndbdKECcTEwTA1&index=1
 ####
 
 starting composer
@@ -22,3 +25,11 @@ AKLINDA BULUNSUN
 <div class="invalid-feedback">
     <?php echo $model->getFirstError('name') ?>
 </div>
+
+
+
+php =  8.4.1 
+
+
+migrationları uygulamak için // localhost yerine 127.0.0.1 verdik nedense mysql workbench algılıyor bu arada localhost'u
+php migrations.php
