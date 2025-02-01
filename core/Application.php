@@ -80,4 +80,24 @@ class Application
     {
         return !self::$app->user;
     }
+
+    public function login(DbModel $user)
+    {
+        $this->user = $user;
+        $primaryKey = $user->primaryKey();
+        $primaryKeyValue = $user->{$primaryKey};
+        $this->session->set('user', $primaryKeyValue);
+        return true;
+    }
+
+    public function logout()
+    {
+        $this->user = null;
+        $this->session->remove('user');
+    }
+
+    public static function isGuest()
+    {
+        return !self::$app->user;
+    }
 }
