@@ -2,9 +2,9 @@
 
 namespace app\models;
 
-use app\core\DbModel;
+use app\core\UserModel;
 
-class User extends DbModel
+class User extends UserModel
 {
     public const STATUS_INACTIVE = 0;
     public const STATUS_ACTIVE = 1;
@@ -35,7 +35,7 @@ class User extends DbModel
         ];
     }
 
-    public function tableName(): string
+    public static function tableName(): string
     {
         return "users";
     }
@@ -45,7 +45,7 @@ class User extends DbModel
         return ['name', 'email', 'password', 'status'];
     }
 
-    public function primaryKey(): string
+    public static function primaryKey(): string
     {
         return 'id';
     }
@@ -58,5 +58,10 @@ class User extends DbModel
             'password' => 'Password',
             'passwordRepeat' => 'Repeat Password',
         ];
+    }
+
+    public function getDisplayName(): string
+    {
+        return $this->name;
     }
 }

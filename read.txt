@@ -33,3 +33,9 @@ php =  8.4.1
 
 migrationları uygulamak için // localhost yerine 127.0.0.1 verdik nedense mysql workbench algılıyor bu arada localhost'u
 php migrations.php
+
+## istediğin gibi okuma
+echo "<pre>";
+var_dump($user);
+echo "</pre>";
+exit;
